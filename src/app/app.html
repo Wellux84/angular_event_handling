@@ -10,6 +10,17 @@
     </p>
   }
 </div>
+@if (forDivideNumber() !== null) {
+  <app-for-divide [fordivide]="forDivideNumber()"
+                  (divideResult)="onForDivideResponse($event)">
+  </app-for-divide>
+}
+
+@if (forDivideResult !== null) {
+  <div>
+    <h5>Result of Division: {{ forDivideResult }}</h5>
+  </div>
+}
 
 <router-outlet />
 
