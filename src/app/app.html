@@ -1,8 +1,14 @@
 <div>
   <h1>{{ title() }}</h1>
-  <button (click)="clickRandom()">Random Number</button>
-  <p>{{ clickRandom() }}</p>
+
+  <button (click)="onButtonClick()">Random Number</button>
+
+  @if (randomNumber() !== null) {
+    <p>
+      {{ randomNumber() }}
+    </p>
+  }
 </div>
 
-
 <router-outlet />
+

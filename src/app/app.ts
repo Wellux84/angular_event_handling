@@ -1,10 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
-function clickRandom() {
-  return Math.floor(Math.random()*100);
-}
-
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet],
@@ -12,6 +8,12 @@ function clickRandom() {
   styleUrls: ['./app.css']
 })
 export class App {
-  protected readonly title = signal('Click Button For Random Number!');
-  protected readonly clickRandom = clickRandom;
+  title = signal('Click Button For Random Number!');
+  randomNumber = signal<number | null>(null);
+
+  onButtonClick() {
+    const value = Math.floor(Math.random() * 100);
+    this.randomNumber.set(value);
+  }
 }
+
