@@ -10,10 +10,17 @@ import { RouterOutlet } from '@angular/router';
 export class App {
   title = signal('Click Button For Random Number!');
   randomNumber = signal<number | null>(null);
+  inputNumber = signal<number | null>(null);
 
   onButtonClick() {
     const value = Math.floor(Math.random() * 100);
     this.randomNumber.set(value);
+  }
+
+  onInput(event: Event) {
+    const input = event.target as HTMLInputElement;
+    const value = input.value ? parseInt(input.value, 10) : null;
+    this.inputNumber.set(value);
   }
 }
 

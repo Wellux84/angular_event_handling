@@ -2,10 +2,11 @@
   <h1>{{ title() }}</h1>
 
   <button (click)="onButtonClick()">Random Number</button>
+  <input type="number" (input)="onInput($event)" placeholder="Enter a number" />
 
-  @if (randomNumber() !== null) {
+  @if (randomNumber() !== null && inputNumber() !== null) {
     <p>
-      {{ randomNumber() }}
+      {{ randomNumber() }} + {{ inputNumber() }} = {{ randomNumber()! + inputNumber()! }}
     </p>
   }
 </div>
